@@ -80,7 +80,7 @@
     };
     someFirmChart.setOption(initOption);
 
-
+    
     const handleCLick = (event) => {
         const newOption = _.cloneDeep(initOption);
         // 获取所有input
