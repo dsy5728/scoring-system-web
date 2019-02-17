@@ -1,5 +1,5 @@
 !(function (window) {
-    const { echarts, _ } = window;
+    const { echarts, _, CONFIG } = window;
 
     const someFirmContainer = document.getElementById('some-firm');
     const someFirmChart = echarts.init(someFirmContainer);
@@ -26,23 +26,23 @@
             indicator: [
                 {
                     name: '偿债能力',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
                 {
                     name: '营运能力',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
                 {
                     name: '盈利能力',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
                 {
                     name: '成长性分析',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
                 {
                     name: '市现金流量分析',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
             ],
         },
@@ -84,11 +84,7 @@
     const handleCLick = (event) => {
         const newOption = _.cloneDeep(initOption);
         // 获取所有input
-        const allInputsNode = document.querySelectorAll('input');
-        const allInputs = [];
-        for (let i = 0, maxLength = allInputsNode.length; i < maxLength; i++) {
-            allInputs.push(allInputsNode[i]);
-        }
+        const allInputs = Array.from(document.querySelectorAll('input'));
         const firmName = allInputs[0].value.trim();
 
         // 修改名称
@@ -101,20 +97,17 @@
         // 第一组
         const firstGroup = numberInputs.slice(0, 2);
         const firstGroupReference = [
-            window.CONFIG.reference.currentRatio,
-            window.CONFIG.reference.assetsAndLiabilityRate,
+            CONFIG.reference.currentRatio,
+            CONFIG.reference.assetsAndLiabilityRate,
         ];
 
         const averageScore = firstGroup.map((input, index) => {
             const numberValue = Number.parseFloat(input.value.trim());
-            const score = Math.min(numberValue / firstGroupReference[index] * window.CONFIG.OFILM_SCORE, window.CONFIG.MAX_SCORE);
+            const score = Math.min(numberValue / firstGroupReference[index] * CONFIG.OFILM_SCORE, CONFIG.MAX_SCORE);
             return score;
-        })
-            .reduce((f, b) => f + b, 0) / 2;
-
+        }).reduce((f, b) => f + b, 0) / 2;
 
         newOption.series[0].data[0].value[0] = averageScore;
-
 
         // 第二组
         someFirmChart.setOption(newOption);

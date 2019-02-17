@@ -1,5 +1,5 @@
 !(function (window) {
-    const { echarts } = window;
+    const { echarts, CONFIG } = window;
     const ofilmContainer = document.getElementById('ofilm');
     const ofilmChart = echarts.init(ofilmContainer);
 
@@ -26,23 +26,23 @@
             indicator: [
                 {
                     name: '偿债能力',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
                 {
                     name: '营运能力',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
                 {
                     name: '盈利能力',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
                 {
                     name: '成长性分析',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
                 {
                     name: '市现金流量分析',
-                    max: window.CONFIG.MAX_SCORE,
+                    max: CONFIG.MAX_SCORE,
                 },
             ],
         },
@@ -51,7 +51,7 @@
             type: 'radar',
             // areaStyle: {normal: {}},
             data: [{
-                value: Array.from({ length: 5 }).map(ele => window.CONFIG.OFILM_SCORE),
+                value: Array.from({ length: 5 }).map(ele => CONFIG.OFILM_SCORE),
                 name: '欧菲科技',
                 label: {
                     normal: {
