@@ -1,0 +1,13 @@
+{
+    "cSpell.ignorePaths": [
+        "js/vendor/**",
+        "node_modules",
+        "**/node_modules",
+        "**/node_modules/**",
+        "node_modules/**",
+        "vscode-extension",
+        ".git",
+        "*.dll",
+        "**/*.dll"
+    ]
+}

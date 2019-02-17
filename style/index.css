@@ -1,0 +1,27 @@
+footer {
+    clear: both;
+    display: block;
+    text-align: center;
+    margin: 0px auto;
+    position: absolute;
+    width: 100%;
+}
+
+img {
+    height: 120px;
+    width: 120px;
+}
+
+.my-submit-btn {
+    width: 100px;
+    height: 36px;
+    background-color: rgba(0, 134, 241, 0.6);
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    line-height: 36px;
+}
+
+.my-submit-btn:hover {
+    background-color: rgba(0, 134, 241, 1);
+}
